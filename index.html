@@ -1,0 +1,2403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>matcha coded by neyla 🍵</title>
+
+<link rel="icon" href="images/matcha.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= RESET ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    overflow-x:hidden;
+    background:#f7fbf7;
+    color:#2f3b52;
+}
+
+/* ================= FLOATING NAVBAR ================= */
+
+.floating-navbar{
+
+    position:fixed;
+
+    top:20px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:92%;
+    max-width:1200px;
+
+    background:rgba(255,255,255,0.68);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:40px;
+
+    padding:28px 35px;
+
+    display:flex;
+
+    justify-content:space-around;
+    align-items:center;
+
+    z-index:999;
+
+    box-shadow:0 10px 30px rgba(95,127,105,0.10);
+
+    border:1px solid rgba(255,255,255,0.5);
+}
+
+/* NAV ITEM */
+
+.nav-item{
+
+    text-decoration:none;
+
+    color:#2f4f3e;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    padding:16px 34px;
+
+    border-radius:22px;
+
+    transition:0.3s ease;
+}
+
+/* ACTIVE */
+
+.nav-item.active{
+
+    background:#7ba58b;
+
+    color:white;
+
+    box-shadow:0 6px 18px rgba(123,165,139,0.28);
+}
+
+/* HOVER */
+
+.nav-item:hover{
+
+    background:#dceee2;
+
+    color:#5f7f69;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .floating-navbar{
+
+        width:94%;
+
+        padding:18px 12px;
+
+        gap:8px;
+
+        overflow-x:auto;
+    }
+
+    .nav-item{
+
+        font-size:14px;
+
+        padding:12px 18px;
+
+        white-space:nowrap;
+    }
+
+}
+
+/* ================= FLOATING MATCHA ================= */
+
+.matcha-float{
+
+    position:absolute;
+
+    right:65px;
+
+    top:100%;
+
+    font-size:58px;
+
+    transform-origin:top center;
+
+    animation:matchaSwing 4s ease-in-out infinite;
+
+    filter:drop-shadow(0 8px 12px rgba(0,0,0,0.12));
+}
+
+/* STRING */
+
+.matcha-float::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:3px;
+
+    height:75px;
+
+    background:#9da5af;
+
+    top:-72px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    border-radius:20px;
+}
+
+/* SWING */
+
+@keyframes matchaSwing{
+
+    0%{
+        transform:rotate(5deg);
+    }
+
+    50%{
+        transform:rotate(-5deg);
+    }
+
+    100%{
+        transform:rotate(5deg);
+    }
+
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar-menu{
+    position:fixed;
+    top:0;
+    right:-100%;
+
+    width:100%;
+    height:100vh;
+
+    background:rgba(239,245,240,0.96);
+    backdrop-filter:blur(18px);
+
+    z-index:2000;
+
+    transition:0.5s ease;
+
+    padding:35px;
+}
+
+.sidebar-menu.active{
+    right:0;
+}
+
+.close-btn{
+    position:absolute;
+    top:25px;
+    right:35px;
+
+    font-size:42px;
+    cursor:pointer;
+}
+
+.sidebar-content{
+    margin-top:90px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:18px;
+}
+
+.sidebar-content a{
+    text-decoration:none;
+    color:#2f3b52;
+
+    font-size:20px;
+    font-weight:500;
+
+    padding:16px 22px;
+
+    border-radius:18px;
+
+    transition:0.3s ease;
+}
+
+.sidebar-content a:hover{
+    background:#dfeee2;
+    color:#5f7f69;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+
+    background:linear-gradient(135deg,#a8d5ba,#7ebf95);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    position:relative;
+    overflow:hidden;
+
+    padding:120px 20px 50px;
+}
+
+/* FLOATING */
+
+.floating{
+    position:absolute;
+
+    opacity:0.18;
+
+    animation:floating 6s ease-in-out infinite;
+
+    pointer-events:none;
+}
+
+.floating:nth-child(1){
+    top:110px;
+    left:70px;
+    font-size:44px;
+}
+
+.floating:nth-child(2){
+    top:210px;
+    right:120px;
+    font-size:55px;
+}
+
+.floating:nth-child(3){
+    bottom:200px;
+    left:110px;
+    font-size:62px;
+}
+
+.floating:nth-child(4){
+    bottom:130px;
+    right:90px;
+    font-size:52px;
+}
+
+.floating:nth-child(5){
+    top:42%;
+    left:75%;
+    font-size:34px;
+}
+
+.floating:nth-child(6){
+    top:30%;
+    left:18%;
+    font-size:40px;
+}
+
+.floating:nth-child(7){
+    top:160px;
+    left:48%;
+    font-size:28px;
+}
+
+.floating:nth-child(8){
+    bottom:260px;
+    right:28%;
+    font-size:48px;
+}
+
+@keyframes floating{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+}
+
+/* PROFILE */
+
+.avatar{
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    margin:auto;
+
+    border:5px solid #eef7ef;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+
+    animation:float 3s ease-in-out infinite;
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+.hero h1{
+    margin-top:28px;
+
+    font-size:68px;
+    font-weight:700;
+
+    color:white;
+}
+
+.hero-subtitle{
+    margin-top:18px;
+
+    font-size:22px;
+    line-height:1.8;
+
+    color:rgba(255,255,255,0.92);
+}
+
+.hero-btn{
+    margin-top:40px;
+
+    display:inline-block;
+
+    padding:16px 42px;
+
+    background:white;
+    color:#72b48f;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-size:18px;
+    font-weight:600;
+
+    transition:0.3s ease;
+}
+
+.hero-btn:hover{
+    transform:translateY(-6px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    padding:120px 20px;
+    background:#f8fbf8;
+
+    position:relative;
+    overflow:hidden;
+}
+
+/* FLOATING DECOR */
+
+.about-decoration{
+    position:absolute;
+
+    font-size:40px;
+
+    opacity:0.12;
+
+    animation:floatAbout 6s ease-in-out infinite;
+
+    pointer-events:none;
+}
+
+.about-decoration.one{
+    top:80px;
+    right:10%;
+}
+
+.about-decoration.two{
+    bottom:120px;
+    left:8%;
+
+    animation-delay:1s;
+}
+
+.about-decoration.three{
+    top:45%;
+    right:18%;
+
+    animation-delay:2s;
+}
+
+.about-decoration.four{
+    top:22%;
+    left:12%;
+
+    animation-delay:3s;
+}
+
+@keyframes floatAbout{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+}
+
+/* CONTAINER */
+
+.about-container{
+    max-width:1150px;
+    margin:auto;
+
+    position:relative;
+    z-index:2;
+}
+
+.about-text{
+    width:100%;
+}
+
+/* HELLO */
+
+.about-hi{
+    font-size:24px;
+
+    color:#7ba58b;
+
+    margin-bottom:20px;
+
+    font-weight:600;
+
+    animation:fadeUp 1s ease;
+}
+
+/* MAIN DESCRIPTION */
+
+.about-description{
+    font-size:20px;
+
+    line-height:1.9;
+
+    color:#5c5c5c;
+
+    max-width:1050px;
+
+    margin-bottom:26px;
+
+    letter-spacing:0.2px;
+
+    animation:fadeUp 1.3s ease;
+}
+
+.about-description.big{
+    font-size:34px;
+
+    line-height:1.5;
+
+    color:#2f4f3e;
+
+    font-weight:600;
+
+    margin-bottom:45px;
+}
+
+.about-description.second{
+    font-size:19px;
+    color:#707070;
+
+    padding-left:22px;
+
+    border-left:4px solid #a8d5ba;
+
+    max-width:980px;
+}
+
+/* FADE ANIMATION */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0px);
+    }
+
+}
+
+
+
+/* ================= SKILLS ================= */
+
+.skills{
+    background:#eef7ef;
+    padding:100px 20px;
+}
+
+.section-title{
+    text-align:center;
+
+    font-size:42px;
+    font-weight:700;
+
+    color:#2f4f3e;
+
+    margin-bottom:30px;
+}
+
+.skills-box,
+.tools-box{
+    max-width:1100px;
+
+    margin:0 auto 50px;
+
+    background:rgba(255,255,255,0.45);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:32px;
+
+    padding:55px 25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* SKILLS */
+
+.skills-marquee{
+    overflow:hidden;
+    width:100%;
+}
+
+.skills-track{
+    display:flex;
+    gap:22px;
+
+    width:max-content;
+
+    animation:scrollSkills 59s linear infinite;
+}
+
+.skill-tag{
+    background:#f5eddc;
+
+    padding:18px 28px;
+
+    border-radius:18px;
+
+    font-size:17px;
+    font-weight:600;
+
+    color:#2f4f3e;
+
+    white-space:nowrap;
+}
+
+@keyframes scrollSkills{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+/* TOOLS */
+
+.tools-box{
+    overflow:visible;
+}
+
+.tools-marquee{
+    width:100%;
+
+    overflow-x:auto;
+    overflow-y:visible;
+
+    position:relative;
+
+    padding:45px 0 25px;
+
+    scrollbar-width:none;
+}
+
+.tools-marquee::-webkit-scrollbar{
+    display:none;
+}
+
+.tools-track{
+    display:flex;
+    align-items:center;
+
+    gap:22px;
+
+    width:max-content;
+
+    animation:scrollTools 30s linear infinite;
+}
+
+.tool-card{
+    width:88px;
+    height:88px;
+
+    background:#f7f1e7;
+
+    border-radius:22px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    transition:0.3s ease;
+
+    cursor:pointer;
+
+    flex-shrink:0;
+
+    overflow:visible;
+
+    border:1px solid #eee7db;
+}
+
+.tool-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,0.06);
+}
+
+.tool-card img{
+    width:40px;
+    height:40px;
+
+    object-fit:contain;
+}
+
+/* TOOL NAME */
+
+.tool-name{
+    position:absolute;
+
+    top:-42px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:white;
+
+    color:#6b7d70;
+
+    padding:7px 15px;
+
+    border-radius:14px;
+
+    font-size:12px;
+    font-weight:600;
+
+    white-space:nowrap;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:0.25s ease;
+
+    z-index:9999;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+
+    border:1px solid #e7eee8;
+
+    pointer-events:none;
+}
+
+.tool-card:hover .tool-name{
+    opacity:1;
+    visibility:visible;
+
+    top:-52px;
+}
+
+.skills-desc{
+    text-align:center;
+
+    margin-top:28px;
+
+    font-size:17px;
+    line-height:1.8;
+
+    color:#5d5d5d;
+}
+
+@keyframes scrollTools{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+/* ================= EXPERIENCE ================= */
+
+.experience{
+
+    padding:120px 20px;
+
+    background:#f8fbf8;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* FLOATING */
+
+.experience-float{
+
+    position:absolute;
+
+    opacity:0.12;
+
+    animation:experienceFloat 6s ease-in-out infinite;
+
+    pointer-events:none;
+}
+
+.experience-float.one{
+
+    top:15%;
+
+    left:6%;
+
+    font-size:32px;
+}
+
+.experience-float.two{
+
+    top:25%;
+
+    right:10%;
+
+    font-size:38px;
+
+    animation-delay:2s;
+}
+
+.experience-float.three{
+
+    bottom:12%;
+
+    left:14%;
+
+    font-size:34px;
+
+    animation-delay:4s;
+}
+
+@keyframes experienceFloat{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+}
+
+/* CONTAINER */
+
+.experience-container{
+
+    max-width:1000px;
+
+    margin:auto;
+
+    position:relative;
+
+    z-index:2;
+}
+
+/* SUBTITLE */
+
+.experience-subtitle{
+
+    text-align:center;
+
+    color:#6d756f;
+
+    font-size:18px;
+
+    margin-bottom:55px;
+}
+
+/* CARD */
+
+/* EXPERIENCE CARD */
+
+.experience-card{
+
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0.96),
+        rgba(240,248,242,0.95)
+    );
+
+    border-radius:32px;
+
+    padding:45px;
+
+    border:none;
+
+    box-shadow:
+        0 10px 30px rgba(114,180,143,0.10);
+
+    transition:0.35s ease;
+
+    backdrop-filter:blur(14px);
+}
+
+.experience-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 16px 40px rgba(114,180,143,0.16);
+}
+
+.experience-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 35px rgba(95,127,105,0.12);
+}
+
+/* YEAR */
+
+.experience-year{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    background:#dceee2;
+
+    color:#5f7f69;
+
+    border-radius:16px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:22px;
+}
+
+/* TITLE */
+
+.experience-card h3{
+
+    font-size:30px;
+
+    color:#2f4f3e;
+
+    margin-bottom:12px;
+}
+
+/* ROLE */
+
+.experience-role{
+
+    font-size:18px;
+
+    color:#7ba58b;
+
+    margin-bottom:24px;
+
+    font-weight:600;
+}
+
+/* TEXT */
+
+.experience-card p{
+
+    font-size:17px;
+
+    line-height:2;
+
+    color:#66736b;
+}
+
+/* UPCOMING INTERNSHIP */
+
+.upcoming-title{
+
+    font-size:28px;
+
+    color:#7ba58b;
+
+    margin-bottom:24px;
+
+    margin-top:20px;
+
+    font-weight:700;
+}
+
+/* COMING SOON CARD */
+
+.coming-soon-card{
+
+    position:relative;
+
+    margin-top:35px;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0.95),
+        rgba(236,247,239,0.95)
+    );
+
+    border:none;
+
+    box-shadow:
+        0 10px 30px rgba(114,180,143,0.10),
+        0 0 0 rgba(168,213,186,0.4);
+
+    animation:glowCard 4s ease-in-out infinite;
+
+    backdrop-filter:blur(14px);
+}
+
+/* GLOW ANIMATION */
+
+@keyframes glowCard{
+
+    0%,100%{
+
+        box-shadow:
+        0 10px 30px rgba(114,180,143,0.10),
+        0 0 12px rgba(168,213,186,0.15);
+    }
+
+    50%{
+
+        box-shadow:
+        0 15px 40px rgba(114,180,143,0.16),
+        0 0 22px rgba(168,213,186,0.35);
+    }
+
+}
+
+/* BADGE */
+
+.coming-badge{
+
+    position:absolute;
+
+    top:24px;
+
+    right:24px;
+
+    background:#dceee2;
+
+    color:#5f7f69;
+
+    padding:10px 18px;
+
+    border-radius:40px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    box-shadow:0 4px 12px rgba(114,180,143,0.12);
+}
+
+/* ================= PROJECTS ================= */
+
+.projects{
+
+    padding:100px 20px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* FLOATING PROJECT BACKGROUND */
+
+.project-float{
+
+    position:absolute;
+
+    opacity:0.15;
+
+    pointer-events:none;
+
+    animation:projectFloat 7s ease-in-out infinite;
+}
+
+/* POSITION */
+
+.project-float.one{
+
+    top:12%;
+
+    left:5%;
+
+    font-size:34px;
+}
+
+.project-float.two{
+
+    top:28%;
+
+    right:7%;
+
+    font-size:42px;
+
+    animation-delay:2s;
+}
+
+.project-float.three{
+
+    bottom:15%;
+
+    left:10%;
+
+    font-size:36px;
+
+    animation-delay:4s;
+}
+
+.project-float.four{
+
+    bottom:18%;
+
+    right:12%;
+
+    font-size:32px;
+
+    animation-delay:1s;
+}
+
+/* FLOAT ANIMATION */
+
+@keyframes projectFloat{
+
+    0%,100%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-18px) rotate(8deg);
+    }
+
+}
+
+/* GRID */
+
+.projects-grid{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+}
+
+/* CARD */
+
+.project-card{
+
+    background:white;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    transition:0.3s ease;
+
+    border:1px solid #e5efe7;
+}
+
+.project-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 15px 35px rgba(114,180,143,0.12);
+}
+
+/* PROJECT IMAGE */
+
+.project-image{
+
+    width:100%;
+
+    height:260px;
+
+    background:#f5f8f5;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+/* IMAGE */
+
+.project-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    background:#f5f8f5;
+
+    padding:10px;
+
+    display:block;
+}
+
+/* INFO */
+
+.project-info{
+
+    padding:25px;
+}
+
+.project-info h3{
+
+    margin-bottom:12px;
+
+    font-size:24px;
+
+    color:#2f4f3e;
+}
+
+.project-info p{
+
+    color:#666;
+
+    line-height:1.8;
+}
+
+/* READ MORE */
+
+.more-text{
+
+    display:none;
+}
+
+.more-text.show{
+
+    display:inline;
+}
+
+.read-more-btn{
+
+    margin-top:18px;
+
+    background:#dceee2;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:16px;
+
+    color:#2f4f3e;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s ease;
+}
+
+.read-more-btn:hover{
+
+    background:#7ba58b;
+
+    color:white;
+}
+
+
+
+/* ================= CONTACT ================= */
+
+.contact-section{
+
+    padding:120px 20px;
+
+    background:#eef7ef;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* TOP */
+
+.contact-top h2{
+
+    font-size:58px;
+
+    line-height:1.15;
+
+    color:#2f4f3e;
+
+    font-weight:700;
+
+    margin-bottom:24px;
+}
+
+.contact-line{
+
+    width:160px;
+    height:7px;
+
+    background:#a8d5ba;
+
+    border-radius:50px;
+
+    margin:auto;
+    margin-bottom:25px;
+}
+
+.contact-top p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    color:#5d6b62;
+
+    margin-bottom:70px;
+}
+
+/* CARD */
+
+.contact-card{
+
+    max-width:620px;
+
+    margin:auto;
+
+    background:white;
+
+    border-radius:32px;
+
+    padding:45px;
+
+    box-shadow:0 10px 30px rgba(114,180,143,0.10);
+
+    text-align:left;
+
+    transition:0.3s ease;
+
+    border:1px solid #e4eee5;
+}
+
+.contact-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 35px rgba(114,180,143,0.14);
+}
+
+.contact-card h3{
+
+    font-size:42px;
+
+    color:#2f4f3e;
+
+    margin-bottom:35px;
+}
+
+/* ITEM */
+
+.contact-item{
+
+    display:flex;
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:28px;
+
+    transition:0.3s ease;
+}
+
+.contact-item:hover{
+
+    transform:translateX(6px);
+}
+
+/* ICON */
+
+.contact-icon{
+
+    width:68px;
+    height:68px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:26px;
+
+    flex-shrink:0;
+
+    transition:0.3s ease;
+}
+
+.contact-item:hover .contact-icon{
+
+    transform:scale(1.08);
+}
+
+/* COLORS */
+
+.email{
+    background:#dceee2;
+}
+
+.github{
+    background:#5f7f69;
+    color:white;
+}
+
+.instagram{
+    background:#edf5ef;
+}
+
+.linkedin{
+    background:#cfe4d5;
+}
+
+/* TEXT */
+
+.contact-info h4{
+
+    font-size:18px;
+
+    color:#2f4f3e;
+
+    margin-bottom:4px;
+}
+
+.contact-info p{
+
+    font-size:16px;
+
+    color:#6b746e;
+}
+
+/* LINK */
+
+.contact-link{
+
+    text-decoration:none;
+
+    color:inherit;
+
+    display:block;
+}
+
+/* ================= CONTACT ANIMATION ================= */
+
+.contact-section{
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* GLOW BACKGROUND */
+
+.contact-glow{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    opacity:0.18;
+
+    animation:glowMove 10s ease-in-out infinite;
+
+    pointer-events:none;
+}
+
+.glow1{
+
+    width:260px;
+    height:260px;
+
+    background:#b7d8c0;
+
+    top:5%;
+    left:-5%;
+}
+
+.glow2{
+
+    width:220px;
+    height:220px;
+
+    background:#dceee2;
+
+    top:40%;
+    right:-5%;
+
+    animation-delay:3s;
+}
+
+.glow3{
+
+    width:180px;
+    height:180px;
+
+    background:#cfe5d6;
+
+    bottom:10%;
+    left:35%;
+
+    animation-delay:5s;
+}
+
+/* FLOATING EMOJIS */
+
+.contact-float{
+
+    position:absolute;
+
+    opacity:0.22;
+
+    font-size:28px;
+
+    animation:floatContact 7s ease-in-out infinite;
+
+    pointer-events:none;
+}
+
+.float1{
+
+    top:15%;
+    right:12%;
+}
+
+.float2{
+
+    bottom:18%;
+    left:10%;
+
+    animation-delay:2s;
+}
+
+.float3{
+
+    top:60%;
+    right:18%;
+
+    animation-delay:4s;
+}
+
+.float4{
+
+    top:30%;
+    left:15%;
+
+    animation-delay:1s;
+}
+
+/* ANIMATION */
+
+@keyframes glowMove{
+
+    0%,100%{
+
+        transform:
+        translateY(0px)
+        translateX(0px);
+    }
+
+    50%{
+
+        transform:
+        translateY(-20px)
+        translateX(15px);
+    }
+
+}
+
+@keyframes floatContact{
+
+    0%,100%{
+
+        transform:
+        translateY(0px)
+        rotate(0deg);
+    }
+
+    50%{
+
+        transform:
+        translateY(-16px)
+        rotate(8deg);
+    }
+
+}
+
+/* FOOTER */
+
+footer{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px 20px;
+
+    background:#ffffff;
+
+    color:#2f3b52;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    letter-spacing:0.3px;
+
+    border-top:1px solid #edf2ee;
+
+    margin:0 auto;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .contact-top h2{
+        font-size:38px;
+    }
+
+    .contact-top p{
+        font-size:16px;
+    }
+
+    .contact-card{
+        padding:35px 25px;
+    }
+
+    .contact-card h3{
+        font-size:34px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+    <!-- ================= FLOATING NAVBAR ================= -->
+
+<nav class="floating-navbar">
+
+    <a href="#home" class="nav-item active">
+        Home
+    </a>
+
+    <a href="#about" class="nav-item">
+        About
+    </a>
+
+    <a href="#experience" class="nav-item">
+        Experiences
+    </a>
+
+    <a href="#projects" class="nav-item">
+        Projects
+    </a>
+
+    <a href="#contact" class="nav-item">
+        Contact
+    </a>
+
+    <!-- TARUH DI SINI -->
+
+    <div class="matcha-float">
+        🍵
+    </div>
+
+</nav>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar-menu" id="sidebarMenu">
+
+    <div class="close-btn" onclick="closeMenu()">
+        ✕
+    </div>
+
+    <div class="sidebar-content">
+
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#skills" onclick="closeMenu()">Skills</a>
+        <a href="#projects" onclick="closeMenu()">Projects</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+
+    </div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="floating">🌿</div>
+    <div class="floating">🍃</div>
+    <div class="floating">🍵</div>
+    <div class="floating">🌱</div>
+    <div class="floating">🫧</div>
+    <div class="floating">✩</div>
+    <div class="floating">⋆</div>
+    <div class="floating">🌿</div>
+
+    <div class="hero-content">
+
+        <div class="avatar">
+            <img src="images/profile.jpg" alt="Neyla">
+        </div>
+
+        <h1>Neyla Shakira</h1>
+
+        <p class="hero-subtitle">
+            Computer Engineering Student <br>
+            Frontend Developer • AI Enthusiast • Creative Designer
+        </p>
+
+        <a href="#about" class="hero-btn">
+            Explore My Portfolio ↓
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="about-decoration one">🌿</div>
+    <div class="about-decoration two">🍵</div>
+    <div class="about-decoration three">✨</div>
+    <div class="about-decoration four">🍃</div>
+
+    <div class="about-container">
+
+        <div class="about-text">
+
+            <p class="about-hi">
+                Hi! Call me Neyla(˶˃ ᵕ ˂˶). 
+            </p>
+
+            <p class="about-description big">
+                Third-year Computer Engineering student focused on
+                technology and system-oriented learning,
+                with an interest in computer networks and
+                system development and hands-on experience
+                using VHDL, Java, Python, MATLAB,
+                Cisco Packet Tracer, and Wireshark.
+            </p>
+
+            <p class="about-description second">
+                Dynamic and results-driven individual with experience
+                at Ikatan Mahasiswa Elektro FTUI,
+                excelling in customer relations and teamwork.
+                Proficient in VHDL and Python,
+                with strong communication and problem-solving skills.
+                Passionate about creating aesthetic digital experiences
+                while continuously improving both technical
+                and creative abilities 🌿
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</section>
+
+<!-- ================= EXPERIENCES ================= -->
+
+<section class="experience" id="experience">
+
+    <!-- FLOATING -->
+
+    <div class="experience-float one">🌿</div>
+    <div class="experience-float two">✨</div>
+    <div class="experience-float three">🍃</div>
+
+    <div class="experience-container">
+
+        <div class="experience-top">
+
+            <h2 class="section-title">
+                Experiences
+            </h2>
+
+            <p class="experience-subtitle">
+                A journey through organizations, creative collaboration,
+                publication projects, and future professional experiences ✨ 🍵
+            </p>
+
+        </div>
+
+        <!-- ORGANIZATION -->
+
+        <div class="experience-card">
+
+            <div class="experience-year">
+                Nov 2023 - Jan 2024
+            </div>
+
+            <h3>
+                Ikatan Mahasiswa Elektro FTUI (IME FTUI)
+            </h3>
+
+            <h4 class="experience-role">
+                Staff of Publication — PSB Genap DTE FTUI
+            </h4>
+
+            <p>
+                Contributed to publication and media division activities
+                by producing editorial content, designing visual promotional materials,
+                and supporting department graduation event campaigns.
+
+                <br><br>
+
+                Responsible for creating aesthetic graphic designs,
+                assisting social media publication strategies,
+                and helping manage communication flow for event promotions.
+
+                <br><br>
+
+                Experienced in teamwork, multimedia design,
+                public speaking, creative collaboration,
+                and event coordination while working together
+                with committee members to ensure smooth execution
+                and audience engagement 🌿
+            </p>
+
+        </div>
+
+        <!-- UPCOMING INTERNSHIP -->
+
+        <h3 class="upcoming-title">
+           
+        </h3>
+
+        <div class="experience-card coming-soon-card">
+
+            <div class="experience-year">
+                22 June - 31 July 2026
+            </div>
+
+            <h3>
+                Directorate General of Customs and Excise
+            </h3>
+
+            <h4 class="experience-role">
+                Information Technology & Data Processing Intern
+            </h4>
+
+            <p>
+                Upcoming internship program at
+                Kantor Pelayanan Utama Bea dan Cukai
+                Tipe C Soekarno-Hatta ✨
+
+                <br><br>
+
+                Will focus on information systems,
+                data processing, digital services,
+                and technology-based administrative workflows
+                within the customs and excise environment.
+
+                <br><br>
+
+                Looking forward to gaining professional experience,
+                improving technical and communication skills,
+                and learning real-world technology implementation
+                in government institutions 🍵
+            </p>
+
+            <div class="coming-badge">
+                Coming Soon 🍵
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section class="skills" id="skills">
+
+    <div class="skills-box">
+
+        <h2 class="section-title">
+            Skillsets
+        </h2>
+
+        <div class="skills-marquee">
+
+<div class="skills-track">
+
+    <div class="skill-tag">Frontend Development</div>
+    <div class="skill-tag">UI/UX Design</div>
+    <div class="skill-tag">Networking</div>
+    <div class="skill-tag">Artificial Intelligence</div>
+    <div class="skill-tag">Multimedia Editing</div>
+    <div class="skill-tag">Creative Design</div>
+    <div class="skill-tag">Problem Solving</div>
+    <div class="skill-tag">Team Collaboration</div>
+    <div class="skill-tag">Public Speaking</div>
+    <div class="skill-tag">Cisco Packet Tracer</div>
+    <div class="skill-tag">VHDL Programming</div>
+    <div class="skill-tag">Python Programming</div>
+    <div class="skill-tag">Web Development</div>
+    <div class="skill-tag">Leadership</div>
+    <div class="skill-tag">Communication Skills</div>
+
+    <!-- DUPLICATE BIAR SMOOTH -->
+
+    <div class="skill-tag">Frontend Development</div>
+    <div class="skill-tag">UI/UX Design</div>
+    <div class="skill-tag">Networking</div>
+    <div class="skill-tag">Artificial Intelligence</div>
+    <div class="skill-tag">Multimedia Editing</div>
+    <div class="skill-tag">Creative Design</div>
+    <div class="skill-tag">Problem Solving</div>
+    <div class="skill-tag">Team Collaboration</div>
+    <div class="skill-tag">Public Speaking</div>
+    <div class="skill-tag">Cisco Packet Tracer</div>
+    <div class="skill-tag">VHDL Programming</div>
+    <div class="skill-tag">Python Programming</div>
+    <div class="skill-tag">Web Development</div>
+    <div class="skill-tag">Leadership</div>
+    <div class="skill-tag">Communication Skills</div>
+
+</div>
+  <p class="skills-desc">
+    Passionate about blending technology and creativity —
+    from frontend development and networking
+    to multimedia design and AI-based projects 🍵✨
+</p>
+
+        </div>
+
+    </div>
+
+    <!-- TOOLS -->
+
+    <div class="tools-box">
+
+        <h2 class="section-title">
+            Tech Stack & Tools
+        </h2>
+
+        <div class="tools-marquee">
+
+            <div class="tools-track">
+
+                <div class="tool-card">
+                    <div class="tool-name">Python</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">Unity</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">HTML</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">CSS</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">JavaScript</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">React.js</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">TypeScript</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">Notion</div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">Trello</div>
+                    <img src="https://cdn.worldvectorlogo.com/logos/trello.svg">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">PowerPoint</div>
+                    <img src="https://img.icons8.com/color/96/microsoft-powerpoint-2019.png">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">Excel</div>
+                    <img src="https://img.icons8.com/color/96/microsoft-excel-2019.png">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">Figma</div>
+                    <img src="https://cdn.worldvectorlogo.com/logos/figma-icon.svg">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">GitHub</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-name">Cisco</div>
+                    <img src="https://cdn.worldvectorlogo.com/logos/cisco-2.svg">
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="skills-desc">
+            My favorite tools for coding, designing,
+            networking, and creating aesthetic websites 🍵
+        </p>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="projects" id="projects">
+
+<!-- FLOATING BACKGROUND -->
+
+<div class="project-float one">🌿</div>
+<div class="project-float two">✨</div>
+<div class="project-float three">🍃</div>
+<div class="project-float four">⭐</div>
+
+    <h2 class="section-title">
+        Featured Projects
+    </h2>
+
+    <div class="projects-grid">
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img src="images/mindguardian.png" alt="MindGuardian">
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>MindGuardian</h3>
+
+                <p class="project-text">
+
+                    AI-powered mental health support platform designed for daycare environments.
+                    Helps caregivers monitor children’s emotional well-being through emotion tracking,
+                    caregiver dashboards, healthy activity suggestions, and early intervention systems.
+
+                    <span class="more-text">
+
+                        Built using React.js and Firebase Authentication,
+                        MindGuardian focuses on early emotional detection,
+                        AI-based recommendations, caregiver-friendly reporting,
+                        and future integration with psychologists to support
+                        children’s mental health development in daycare settings.
+
+                    </span>
+
+                </p>
+
+                <button class="read-more-btn">
+                    Read More
+                </button>
+
+            </div>
+
+        </div>
+
+<!-- PROJECT 2 -->
+
+<div class="project-card">
+
+    <div class="project-image">
+
+        <img src="images/vocasee.png" alt="VocaSee">
+
+    </div>
+
+    <div class="project-info">
+
+        <h3>VocaSee</h3>
+
+        <p class="project-text">
+
+            AI-powered communication support platform
+            designed to enhance speech and language learning experiences
+            through interactive and accessible technology.
+
+            <span class="more-text">
+
+                Developed as a collaborative innovation project,
+                VocaSee focuses on user-friendly interaction,
+                speech recognition concepts,
+                and educational assistance features
+                to support communication practice and learning activities.
+
+                <br><br>
+
+                The platform aims to create a more engaging
+                and supportive learning environment
+                while combining technology, accessibility,
+                and creative digital experiences ✨
+
+            </span>
+
+        </p>
+
+        <button class="read-more-btn">
+            Read More
+        </button>
+
+    </div>
+
+</div>
+<!-- PROJECT 3 -->
+
+<div class="project-card">
+
+    <div class="project-image">
+
+        <img src="images/smartcatfeeder.jpeg" alt="Smart Cat Feeder">
+
+    </div>
+
+    <div class="project-info">
+
+        <h3>Smart Cat Feeder</h3>
+
+        <p class="project-text">
+
+            Embedded system project designed to help cat owners
+            manage feeding schedules through automated reminders
+            and food stock monitoring.
+
+            <span class="more-text">
+
+                Developed using Arduino Uno,
+                LDR sensor, LCD display,
+                buzzer, timer, and interrupt systems
+                to create a practical smart feeding assistant.
+
+                <br><br>
+
+                The system provides automatic feeding reminders,
+                detects food stock conditions,
+                and allows manual feeding interaction
+                through button interrupt features.
+
+                <br><br>
+
+                Built as a collaborative embedded systems final project
+                focused on automation, sensor interfacing,
+                and real-world hardware implementation ✨
+
+            </span>
+
+        </p>
+
+        <button class="read-more-btn">
+            Read More
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact-section" id="contact">
+
+    <!-- FLOATING BACKGROUND -->
+
+<div class="contact-glow glow1"></div>
+<div class="contact-glow glow2"></div>
+<div class="contact-glow glow3"></div>
+
+<div class="contact-float float1">✨</div>
+<div class="contact-float float2">🌿</div>
+<div class="contact-float float3">⭐</div>
+<div class="contact-float float4">🍃</div>
+
+    <div class="contact-top">
+
+        <h2>
+            made it till the end? 🍵 <br>
+            let’s stay connected.
+        </h2>
+
+        <div class="contact-line"></div>
+
+        <p>
+            Open for collaborations, creative projects,
+            opportunities, or just random conversations
+            about technology, design, and life ✨
+        </p>
+
+    </div>
+
+    <div class="contact-card">
+
+        <h3>
+            Let's Connect!
+        </h3>
+
+        <!-- EMAIL -->
+
+        <a href="mailto:xneylashakira@gmail.com" class="contact-link">
+
+            <div class="contact-item">
+
+                <div class="contact-icon email">
+                    ✉️
+                </div>
+
+                <div class="contact-info">
+                    <h4>Email</h4>
+                    <p>xneylashakira@gmail.com</p>
+                </div>
+
+            </div>
+
+        </a>
+
+        <!-- PHONE -->
+
+        <a href="https://wa.me/628119308118" target="_blank" class="contact-link">
+
+            <div class="contact-item">
+
+                <div class="contact-icon github">
+                    📞
+                </div>
+
+                <div class="contact-info">
+                    <h4>Phone</h4>
+                    <p>+62 811-9308-118</p>
+                </div>
+
+            </div>
+
+        </a>
+
+        <!-- INSTAGRAM -->
+
+        <a href="https://instagram.com/neylashakira_" target="_blank" class="contact-link">
+
+            <div class="contact-item">
+
+                <div class="contact-icon instagram">
+                    🅾
+                </div>
+
+                <div class="contact-info">
+                    <h4>Instagram</h4>
+                    <p>@neylashakira_</p>
+                </div>
+
+            </div>
+
+        </a>
+
+        <!-- SPOTIFY -->
+
+<a href="https://open.spotify.com/user/31z3uucj34k7va27bjbj66uuikae?si=cb4a42a61c764ef1" target="_blank" class="contact-link">
+
+    <div class="contact-item">
+
+        <div class="contact-icon linkedin">
+            ᯤ
+        </div>
+
+        <div class="contact-info">
+            <h4>Spotify</h4>
+            <p>@neylashakira</p>
+        </div>
+
+    </div>
+
+</a>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Neyla Shakira. Soft vibes, clean code, and matcha energy 🍵
+</footer>
+
+<script>
+
+function openMenu(){
+    document.getElementById("sidebarMenu").classList.add("active");
+}
+
+function closeMenu(){
+    document.getElementById("sidebarMenu").classList.remove("active");
+}
+
+/* READ MORE PROJECT */
+
+const readMoreButtons = document.querySelectorAll(".read-more-btn");
+
+readMoreButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        const moreText =
+        button.previousElementSibling.querySelector(".more-text");
+
+        moreText.classList.toggle("show");
+
+        if(moreText.classList.contains("show")){
+
+            button.innerHTML = "Show Less";
+
+        }else{
+
+            button.innerHTML = "Read More";
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
